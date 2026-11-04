@@ -397,7 +397,38 @@
    "status": "failed",
    "dur": "16.0s",
    "err": "TimeoutError: page.waitForURL: Timeout 30000ms exceeded.\nwaiting for navigation to \"**/login\" until \"load\"",
-   "failedStep": "Then the login page should be ready"
+   "failedStep": "Then the login page should be ready",
+   "clickup": "https://app.clickup.com/t/868ksample",
+   "steps": [
+    {
+     "text": "Given I log in as \"nurse\"",
+     "status": "passed"
+    },
+    {
+     "text": "And the Web20 home page should load",
+     "status": "passed"
+    },
+    {
+     "text": "When I leave the session idle past the timeout",
+     "status": "passed"
+    },
+    {
+     "text": "Then the login page should be ready",
+     "status": "failed"
+    },
+    {
+     "text": "And I should see the following fields:",
+     "status": "skipped",
+     "rows": [
+      [
+       "Username"
+      ],
+      [
+       "Password"
+      ]
+     ]
+    }
+   ]
   },
   {
    "name": "PMW-220.1 - Report viewer opens a PDF report",
