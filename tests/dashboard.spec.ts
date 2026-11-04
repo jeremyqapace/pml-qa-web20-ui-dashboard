@@ -71,7 +71,7 @@ test.describe('Overview', () => {
     await expect(top.locator('.cnt')).toHaveText('5');
     await top.locator('[data-rerun-group]').click();
     const cmd = await page.evaluate(() => navigator.clipboard.readText());
-    expect(cmd.startsWith('npx cucumber-js --profile web20 --name "')).toBe(true);
+    expect(cmd.startsWith('npx cucumber-js --name "')).toBe(true);
     expect(cmd.match(/--name "/g)).toHaveLength(5);
   });
 
@@ -107,6 +107,31 @@ test.describe('Suites', () => {
     await expect(page.locator('#atDetail')).toContainText('waitForURL');
     await page.locator('#atDetail [data-copy-bug]').click();
     expect(await page.evaluate(() => navigator.clipboard.readText())).toContain('[BUG]');
+  });
+
+  test('a failed test lists every step, marks the failed one and links ClickUp', async ({ page }) => {
+    await open(page, '#suites');
+    await page.locator('#atList .r-tree', { hasText: 'Session timeout' }).click();
+    const steps = page.locator('#atDetail .steps li');
+    await expect(steps).toHaveCount(5);
+    await expect(steps.nth(3)).toHaveClass(/failed/);
+    await expect(steps.nth(3)).toContainText('Failed here');
+    await expect(steps.nth(3)).toContainText('waitForURL');
+    await expect(steps.nth(4)).toContainText('Not run');
+    await expect(steps.nth(4).locator('.st-rows td')).toHaveText(['Username', 'Password']);
+    await expect(page.locator('#atDetail a', { hasText: 'Open in ClickUp' })).toHaveAttribute('href', 'https://app.clickup.com/t/868ksample');
+    await page.locator('#atDetail [data-copy-bug]').click();
+    const bug = await page.evaluate(() => navigator.clipboard.readText());
+    expect(bug).toContain('Test case:    https://app.clickup.com/t/868ksample');
+    expect(bug).toContain('4. Then the login page should be ready   <-- FAILED');
+    expect(bug).toContain('       | Username |');
+  });
+
+  test('a test from older results without steps still shows its failed step', async ({ page }) => {
+    await open(page, '#suites');
+    await page.locator('#atList .r-tree', { hasText: 'Search patients by last name' }).click();
+    await expect(page.locator('#atDetail .steps')).toHaveCount(0);
+    await expect(page.locator('#atDetail .step')).toHaveText('Then the patients page should be ready');
   });
 
   test('status filter and top search narrow the tree', async ({ page }) => {

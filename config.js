@@ -10,7 +10,7 @@ window.DASHBOARD_CONFIG = {
     releaseThreshold: 80,
 
     // Command the Rerun buttons copy. Each test's name is added as --name "...".
-    rerunCommand: 'npx cucumber-js --profile web20',
+    rerunCommand: 'npx cucumber-js',
 
     // "Good afternoon, team"
     greetingName: 'team',

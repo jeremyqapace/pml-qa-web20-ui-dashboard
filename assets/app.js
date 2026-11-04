@@ -21,7 +21,7 @@
 
             /* ── Settings: edit config.js, not this file ── */
             const CFG = Object.assign({
-                releaseThreshold: 80, rerunCommand: 'npx cucumber-js --profile web20', greetingName: 'team',
+                releaseThreshold: 80, rerunCommand: 'npx cucumber-js', greetingName: 'team',
                 defaultRange: 10, staleAfterHours: 24, excludeTypes: ['API'], maxSuitesListed: 10, dataFolder: './data', suiteLabel: ''
             }, window.DASHBOARD_CONFIG || {});
             const TH = Number(CFG.releaseThreshold);
@@ -149,7 +149,7 @@
 
             /* ── data prep: keep UI only ── */
             function prepare(D) {
-                const all = (D.tests || []).map(t => Object.assign({}, t, { name: clean(t.name), err: clean(t.err), fullErr: clean(t.fullErr), failedStep: clean(t.failedStep), status: statusOf(t.status), comp: t.comp || 'Uncategorized' }));
+                const all = (D.tests || []).map(t => Object.assign({}, t, { name: clean(t.name), err: clean(t.err), fullErr: clean(t.fullErr), failedStep: clean(t.failedStep), steps: Array.isArray(t.steps) ? t.steps.map(s => Object.assign({}, s, { text: clean(s.text) })) : [], status: statusOf(t.status), comp: t.comp || 'Uncategorized' }));
                 const isApi = t => EXCLUDE.has(String(t.type || '').toUpperCase());
                 const tests = all.filter(t => !isApi(t));
                 tests.forEach((t, i) => { t._i = i; t._s = secs(t.dur) });
@@ -684,24 +684,43 @@
                 document.body.style.overflow = '';
                 if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
             }
+            /* Test case ID and its ClickUp ticket. CI fills t.clickup from the WEB2.0 - TEST CASES list */
+            function tcOf(n) { const m = String(n || '').match(/\bTC\s*-?\s*\d{2,5}\b/i); return m ? m[0].replace(/\s+/g, '') : null }
+            function clickupOf(t) { return /^https:\/\/app\.clickup\.com\//.test(t.clickup || '') ? t.clickup : null }
+            /* Cucumber step statuses: undefined, pending and ambiguous steps fail the scenario too */
+            function stepStatus(s) { s = String(s || '').toLowerCase(); return s === 'passed' ? 'passed' : (s === 'skipped' ? 'skipped' : 'failed') }
+            function stepList(t, err) {
+                const inline = t.status === 'failed' && err;
+                return `<ol class="steps">${t.steps.map((s, i) => {
+                    const st = stepStatus(s.status);
+                    const rows = s.rows && s.rows.length ? `<div class="st-rows-wrap"><table class="st-rows">${s.rows.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</table></div>` : '';
+                    const doc = s.doc ? `<pre class="term">${esc(s.doc)}</pre>` : '';
+                    const note = st === 'failed' ? '<span class="st-note">Failed here</span>' : st === 'skipped' ? '<span class="st-note">Not run</span>' : '<span class="vh">Passed</span>';
+                    return `<li class="${st}"><span class="st-n">${i + 1}</span>${sq(st, 'key')}<div class="st-body"><span class="st-text">${esc(s.text)}</span>${note}${rows}${doc}${st === 'failed' && inline ? `<pre class="term">${esc(err)}</pre>` : ''}</div></li>`;
+                }).join('')}</ol>`;
+            }
             function testDetail(t, inPane) {
-                const D = state.D, pmw = pmwOf(t.name), err = t.fullErr || t.err;
+                const D = state.D, pmw = pmwOf(t.name), tc = tcOf(t.name), cu = clickupOf(t), err = t.fullErr || t.err;
+                const steps = t.steps.length > 0, failedInList = steps && t.status === 'failed' && t.steps.some(s => stepStatus(s.status) === 'failed');
+                const req = pmw ? esc(pmw) : tc ? (cu ? `<a href="${esc(cu)}" target="_blank" rel="noopener">${esc(tc)} in ClickUp</a>` : esc(tc)) : 'Not linked';
                 const body = `
                     ${chip(t.status, STATUS[t.status] + (t.dur ? ' in ' + esc(t.dur) : ''))}
                     <dl class="kv">
                         <div><dt>Suite</dt><dd>${esc(t.comp)}</dd></div>
-                        <div><dt>Requirement</dt><dd>${pmw ? esc(pmw) : 'Not linked'}</dd></div>
+                        <div><dt>Requirement</dt><dd>${req}</dd></div>
                         <div><dt>Run</dt><dd>${esc(D.runId)}</dd></div>
                         <div><dt>Environment</dt><dd>${esc(D.env || 'Dev')}</dd></div>
                     </dl>
                     <p class="sec-label">Run it locally</p>
                     <div class="cmd"><code tabindex="0" aria-label="Rerun command">${esc(rerunCmd([t]))}</code><button type="button" data-copy-cmd="${t._i}">Copy</button></div>
-                    ${t.failedStep ? `<p class="sec-label">Failed step</p><div class="step">${esc(t.failedStep)}</div>` : ''}
-                    ${err ? `<p class="sec-label">${t.status === 'flaky' ? 'What happened on the failed attempt' : 'Error'}</p><pre class="term">${esc(err)}</pre>` : ''}
+                    ${steps ? `<p class="sec-label">${t.status === 'failed' ? 'Steps to reproduce' : 'Steps'}</p>${stepList(t, failedInList ? err : null)}` : ''}
+                    ${!steps && t.failedStep ? `<p class="sec-label">Failed step</p><div class="step">${esc(t.failedStep)}</div>` : ''}
+                    ${err && !failedInList ? `<p class="sec-label">${t.status === 'flaky' ? 'What happened on the failed attempt' : 'Error'}</p><pre class="term">${esc(err)}</pre>` : ''}
                     ${!err && t.status === 'passed' ? '<p class="sec-label">No errors recorded for this test.</p>' : ''}`;
                 const gh = D.runUrl ? `<a class="btn" href="${esc(D.runUrl)}" target="_blank" rel="noopener">Open GitHub run</a>` : '';
+                const ticket = cu ? `<a class="btn" href="${esc(cu)}" target="_blank" rel="noopener">Open in ClickUp</a>` : '';
                 const bug = (t.status === 'failed' || t.status === 'flaky') ? (inPane ? `<button class="btn btn-primary" type="button" data-copy-bug="${t._i}">Copy bug report</button>` : `<button class="btn btn-primary" type="button" id="copyBug">Copy bug report</button>`) : '';
-                return { title: cleanName(t.name), body, foot: bug + gh };
+                return { title: cleanName(t.name), body, foot: bug + ticket + gh };
             }
             function openTest(t) {
                 if (!t) return;
@@ -709,8 +728,18 @@
                 const d = testDetail(t, false);
                 openModal(d.title, null, d.body, d.foot);
             }
+            function bugSteps(t) {
+                if (!t.steps.length) return [];
+                const lines = ['Steps to reproduce:'];
+                t.steps.forEach((s, i) => {
+                    const st = stepStatus(s.status);
+                    lines.push(`  ${i + 1}. ${s.text}${st === 'failed' ? '   <-- FAILED' : st === 'skipped' ? '   (not run)' : ''}`);
+                    (s.rows || []).forEach(r => lines.push(`       | ${r.join(' | ')} |`));
+                });
+                return lines.concat('');
+            }
             function bugText(t) {
-                const D = state.D, pmw = pmwOf(t.name);
+                const D = state.D, pmw = pmwOf(t.name), cu = clickupOf(t);
                 return [
                     `[BUG] ${pmw ? pmw + ': ' : ''}${cleanName(t.name)}`, '',
                     `Environment:  ${D.env || 'Dev'}`,
@@ -718,7 +747,9 @@
                     `Run:          ${D.runId}`,
                     `Duration:     ${t.dur || '--'}`,
                     `Status:       ${STATUS[t.status]}`,
+                    cu ? `Test case:    ${cu}` : null,
                     t.failedStep ? `Failed step:  ${t.failedStep}` : null, '',
+                    ...bugSteps(t),
                     'Error:', t.fullErr || t.err || 'No error details recorded', '',
                     'Run locally:', rerunCmd([t]), '',
                     `CI run: ${D.runUrl || '--'}`

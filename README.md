@@ -55,7 +55,7 @@ npx playwright install chromium
 npm test
 ```
 
-There are 28 checks: numbers on every page, every sidebar link, rerun and bug-report copy, data problems (missing file, old run, config settings), WCAG A and AA accessibility in dark and light, and phone width. They run against `samples/`, so they give the same result every time.
+There are 31 checks: numbers on every page, every sidebar link, rerun and bug-report copy, test steps and ClickUp links, data problems (missing file, old run, config settings), WCAG A and AA accessibility in dark and light, and phone width. They run against `samples/`, so they give the same result every time.
 
 `npm run report` opens the HTML report after a failed run.
 
@@ -87,6 +87,8 @@ Before a big change, tag the current version so it is easy to find: `git tag bef
 | `tests[].type` | Should have | `UI` or `API`. Types in `excludeTypes` are hidden |
 | `tests[].dur` | Should have | Duration, for example `12.4s` or `1m 5s` |
 | `tests[].err`, `fullErr`, `failedStep` | For failures | Error text, categories, bug reports |
+| `tests[].steps[]` | Optional | Every step in the test details and bug report: `text`, `status`, and `rows` for a data table. Without it, only `failedStep` shows |
+| `tests[].clickup` | Optional | `https://app.clickup.com/t/...` link to the test case ticket: the Open in ClickUp button and the bug report |
 | `summary.duration` | Should have | Run time |
 | `branch`, `env`, `suite`, `runUrl` | Optional | Environment panel and GitHub links |
 | `comp[]` with `hData[]` and `hRuns[]` | Optional | Suite health over the last 5 runs |
