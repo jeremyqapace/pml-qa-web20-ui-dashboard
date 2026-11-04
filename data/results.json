@@ -1,32 +1,32 @@
 {
-  "runId": "R-452",
-  "generatedAt": "2026-11-04T19:39:04.348Z",
+  "runId": "R-453",
+  "generatedAt": "2026-11-04T20:06:03.273Z",
   "branch": "main",
   "suite": "Smoke",
   "env": "DEV1",
-  "runUrl": "https://github.com/PaceMateLive/web20_webAutomation_PaceMateLive/actions/runs/41894331471",
+  "runUrl": "https://github.com/PaceMateLive/web20_webAutomation_PaceMateLive/actions/runs/41899447291",
   "summary": {
     "total": 47,
-    "passed": 42,
-    "failed": 5,
+    "passed": 45,
+    "failed": 2,
     "flaky": 0,
-    "rate": 89.4,
-    "duration": "18m 6s",
-    "prevRunId": "R-451",
+    "rate": 95.7,
+    "duration": "19m",
+    "prevRunId": "R-452",
     "prevRate": 89.4,
     "prevTotal": 47,
     "prevFailed": 5,
     "prevFlaky": 0,
-    "prevDuration": "18m 12s",
+    "prevDuration": "18m 6s",
     "consecutivePassing": 0
   },
   "layers": {
     "ui": {
       "total": 47,
-      "passed": 42,
-      "failed": 5,
+      "passed": 45,
+      "failed": 2,
       "flaky": 0,
-      "rate": 89.4
+      "rate": 95.7
     },
     "api": {
       "total": 0,
@@ -39,22 +39,22 @@
   "comp": [
     {
       "name": "Dashboard Module Smoke",
-      "pct": 87,
-      "passed": 20,
+      "pct": 100,
+      "passed": 23,
       "total": 23,
-      "failed": 3,
+      "failed": 0,
       "flaky": 0,
       "sparks": [
-        87,
-        87,
         100,
-        87,
+        100,
+        100,
         87,
         83,
         91,
         83,
         87,
-        87
+        87,
+        100
       ]
     },
     {
@@ -179,19 +179,19 @@
     }
   ],
   "hRuns": [
-    "R-448",
     "R-449",
     "R-450",
     "R-451",
-    "R-452"
+    "R-452",
+    "R-453"
   ],
   "hData": [
     [
-      83,
       91,
       83,
       87,
-      87
+      87,
+      100
     ],
     [
       100,
@@ -238,7 +238,6 @@
   ],
   "trend": {
     "labels": [
-      "R-443",
       "R-444",
       "R-445",
       "R-446",
@@ -247,10 +246,10 @@
       "R-449",
       "R-450",
       "R-451",
-      "R-452"
+      "R-452",
+      "R-453"
     ],
     "passed": [
-      131,
       131,
       176,
       131,
@@ -259,10 +258,10 @@
       43,
       41,
       42,
-      42
+      42,
+      45
     ],
     "failed": [
-      41,
       41,
       43,
       41,
@@ -271,7 +270,8 @@
       4,
       6,
       5,
-      5
+      5,
+      2
     ],
     "flaky": [
       0,
@@ -293,7 +293,7 @@
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "21s",
+      "dur": "17s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -355,14 +355,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868j73aqx"
     },
     {
       "name": "[Dashboard] - TC-0002 - Unresolved Remotes - Generate Template",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "40s",
+      "dur": "38s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -399,7 +399,7 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868j7ne3b"
     },
     {
       "name": "[Dashboard] - TC-0027 - Pacemate CRM Reports - Unresolved Remotes - Load Autopromote Dashboard",
@@ -488,14 +488,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868jk1kq6"
     },
     {
       "name": "[Dashboard] - TC-0011 - Pacemate Home Screen - Sidebar - Minimize Sidebar",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "5s",
+      "dur": "6s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -555,14 +555,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868jfvfqq"
     },
     {
       "name": "[Dashboard] - TC-0041 - Pacemate CRM Reports - Dashboard - Filter by Clinic in Dashboard",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "29s",
+      "dur": "24s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -640,14 +640,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868jqfrgj"
     },
     {
       "name": "[Dashboard] - TC-0042 - Pacemate CRM Reports - Dashboard - Filter by Crew in Dashboard",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "26s",
+      "dur": "27s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -725,14 +725,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868jqgnh2"
     },
     {
       "name": "[Dashboard] - TC-0043 - Pacemate CRM Reports - Dashboard - Filter by Severity in Dashboard",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "26s",
+      "dur": "25s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -821,14 +821,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868jqh2pv"
     },
     {
       "name": "[Dashboard] - TC-0044 - Pacemate CRM Reports - Dashboard - Filter by Vendor in Dashboard",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "28s",
+      "dur": "26s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -906,14 +906,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868jqkjtp"
     },
     {
       "name": "[Dashboard] - TC-0045 - Pacemate CRM Reports - Dashboard - Filter by Group in Dashboard",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "50s",
+      "dur": "36s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -991,14 +991,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868jqkzej"
     },
     {
       "name": "[Dashboard] - TC-0048 - Pacemate CRM Reports - Dashboard - Duplicate list from List Manager",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "21s",
+      "dur": "16s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1051,14 +1051,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868jqp2t8"
     },
     {
       "name": "[Dashboard] - TC-0051 - Pacemate CRM Reports - Dashboard - Sort Group By Report Count Descending",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "23s",
+      "dur": "25s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1129,14 +1129,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868k03m3v"
     },
     {
       "name": "[Dashboard] - TC-0052 - Pacemate CRM Reports - Dashboard - Sort Group By Report Count Ascending",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "22s",
+      "dur": "30s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1207,14 +1207,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868k1a5qg"
     },
     {
       "name": "[Dashboard] - TC-0053 - Pacemate CRM Reports - Dashboard - Sort Group By Severity Descending",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "17s",
+      "dur": "23s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1275,14 +1275,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868k1a76t"
     },
     {
       "name": "[Dashboard] - TC-0054 - Pacemate CRM Reports - Dashboard - Sort Group By Severity Ascending",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "19s",
+      "dur": "18s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1347,7 +1347,7 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868k1a80v"
     },
     {
       "name": "[Dashboard] - TC-0060 - Dashboard - Context Toggle Button - Toggle to Legacy from Web20",
@@ -1387,14 +1387,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868k6wuc0"
     },
     {
       "name": "[Dashboard] - TC-0061 - Dashboard - Context Toggle Button - Toggle back to Web20 from Legacy",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "9s",
+      "dur": "10s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1435,14 +1435,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868k6ymdk"
     },
     {
       "name": "[Dashboard] - TC-0074 - Dashboard - Notes - Load Notes Dashboard",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "1m 3s",
+      "dur": "1m",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1515,14 +1515,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868ken0u7"
     },
     {
       "name": "[Dashboard] - TC-0075 - Notes - Pin Note from Notes Dashboard",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "35s",
+      "dur": "34s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1626,14 +1626,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868kep1be"
     },
     {
       "name": "[Dashboard] - TC-0077 - Notes - Load Pending Notes Dashboard",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "1m 5s",
+      "dur": "1m 6s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1706,14 +1706,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868kmmk7v"
     },
     {
       "name": "[Dashboard] - TC-0078 - Notes - Dismiss Note from Pending Note",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "1m 21s",
+      "dur": "1m 23s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1829,18 +1829,18 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868kmn9ak"
     },
     {
       "name": "[Dashboard] - TC-0079 - Notes - Pin Note from Pending Note",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
-      "status": "failed",
-      "dur": "1m 17s",
-      "err": "Error: expect(locator).toHaveCount(expected) failed",
+      "status": "passed",
+      "dur": "1m 47s",
+      "err": null,
       "endpoint": null,
-      "failedStep": "the note should no longer be listed on the dashboard",
-      "fullErr": "Error: expect(locator).toHaveCount(expected) failed\nLocator:  locator('.ag-center-cols-container .ag-row[row-id=\"3050426\"]')\nExpected: 0\nReceived: 1\nTimeout:  10000ms\nCall log:",
+      "failedStep": null,
+      "fullErr": null,
       "payload": null,
       "requestPayload": null,
       "steps": [
@@ -1933,37 +1933,37 @@
         },
         {
           "text": "And the note should no longer be listed on the dashboard",
-          "status": "failed"
+          "status": "passed"
         },
         {
           "text": "When I navigate to \"All Notes\" in the sidebar",
-          "status": "skipped"
+          "status": "passed"
         },
         {
           "text": "Then the Notes dashboard should load",
-          "status": "skipped"
+          "status": "passed"
         },
         {
           "text": "And the Note Status column should show the note as \"Pinned\"",
-          "status": "skipped"
+          "status": "passed"
         },
         {
           "text": "When I reactivate the note",
-          "status": "skipped"
+          "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868kmxd2p"
     },
     {
       "name": "[Dashboard] - TC-0082 - Notes - Dismiss from Notes Dashboard",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
-      "status": "failed",
-      "dur": "1m 3s",
-      "err": "Error: No note with status \"Pending\" on the first page of this notes list",
+      "status": "passed",
+      "dur": "1m 6s",
+      "err": null,
       "endpoint": null,
-      "failedStep": "I open the More Actions menu on a \"Pending\" note",
-      "fullErr": "Error: No note with status \"Pending\" on the first page of this notes list",
+      "failedStep": null,
+      "fullErr": null,
       "payload": null,
       "requestPayload": null,
       "steps": [
@@ -2029,11 +2029,11 @@
         },
         {
           "text": "When I open the More Actions menu on a \"Pending\" note",
-          "status": "failed"
+          "status": "passed"
         },
         {
           "text": "Then the More Actions menu should show the following options:",
-          "status": "skipped",
+          "status": "passed",
           "rows": [
             [
               "Pin Note"
@@ -2048,33 +2048,33 @@
         },
         {
           "text": "When I select \"Dismiss Note\" from the More Actions menu",
-          "status": "skipped"
+          "status": "passed"
         },
         {
           "text": "Then a Note status updated pop up should be visible",
-          "status": "skipped"
+          "status": "passed"
         },
         {
           "text": "And the Note Status column should show the note as \"Dismissed\"",
-          "status": "skipped"
+          "status": "passed"
         },
         {
           "text": "When I reactivate the note",
-          "status": "skipped"
+          "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868kndwkj"
     },
     {
       "name": "[Dashboard] - TC-0083 - Notes - Reactivate Dismissed Note from Notes Dashboard",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
-      "status": "failed",
-      "dur": "32s",
-      "err": "Error: No note with status \"Pending\" on the first page of this notes list",
+      "status": "passed",
+      "dur": "1m 10s",
+      "err": null,
       "endpoint": null,
-      "failedStep": "a Pending note has been dismissed",
-      "fullErr": "Error: No note with status \"Pending\" on the first page of this notes list",
+      "failedStep": null,
+      "fullErr": null,
       "payload": null,
       "requestPayload": null,
       "steps": [
@@ -2144,15 +2144,15 @@
         },
         {
           "text": "Given a Pending note has been dismissed",
-          "status": "failed"
+          "status": "passed"
         },
         {
           "text": "When I open the More Actions menu on the dismissed note",
-          "status": "skipped"
+          "status": "passed"
         },
         {
           "text": "Then the More Actions menu should show the following options:",
-          "status": "skipped",
+          "status": "passed",
           "rows": [
             [
               "Pin Note"
@@ -2167,18 +2167,18 @@
         },
         {
           "text": "When I select \"Reactivate\" from the More Actions menu",
-          "status": "skipped"
+          "status": "passed"
         },
         {
           "text": "Then a Note status updated pop up should be visible",
-          "status": "skipped"
+          "status": "passed"
         },
         {
           "text": "And the Note Status column should show the note as \"Pending\"",
-          "status": "skipped"
+          "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868knm3p9"
     },
     {
       "name": "[Dashboard] - TC-0059 - In Clinic Worklist - Dashboard - Add Visit ID from InClinic Worklist",
@@ -2234,14 +2234,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868k5mppj"
     },
     {
       "name": "[Reports] - TC-0006 - Report Viewer - Add Alert Flag from Report Viewer",
       "comp": "Report Viewer Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "39s",
+      "dur": "42s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2306,14 +2306,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868j9g3p9"
     },
     {
       "name": "[Reports] - TC-0007 - Report Viewer - Add Note from Report Viewer",
       "comp": "Report Viewer Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "37s",
+      "dur": "36s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2370,14 +2370,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868jbgg5k"
     },
     {
       "name": "[Reports] - TC-0008 - Report Viewer - Add Link to report from Report Viewer",
       "comp": "Report Viewer Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "38s",
+      "dur": "36s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2430,7 +2430,7 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868jbzce2"
     },
     {
       "name": "[Reports] - TC-0009 - Report Viewer - Access Medications from Report Viewer",
@@ -2478,14 +2478,14 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868jcdfmj"
     },
     {
       "name": "[Reports] - TC-0010 - Report Viewer - Pin Note from Report Viewer",
       "comp": "Report Viewer Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "39s",
+      "dur": "36s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2538,7 +2538,7 @@
           "status": "passed"
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868jegdjg"
     },
     {
       "name": "[Patients] - TC-0040 - Patients - Patient Details - Access Patient Details Page from Report Viewer",
@@ -2691,14 +2691,14 @@
           ]
         }
       ],
-      "clickup": null
+      "clickup": "https://app.clickup.com/t/868jpd3un"
     },
     {
       "name": "[Smoke] PMW-103.1 - Customize List panel opens successfully",
       "comp": "Customize List Panel",
       "type": "UI",
       "status": "passed",
-      "dur": "5s",
+      "dur": "4s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2790,7 +2790,7 @@
       "comp": "Login",
       "type": "UI",
       "status": "passed",
-      "dur": "6s",
+      "dur": "5s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2814,7 +2814,7 @@
       "comp": "Login",
       "type": "UI",
       "status": "passed",
-      "dur": "6s",
+      "dur": "5s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2862,7 +2862,7 @@
       "comp": "Patients Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "4s",
+      "dur": "5s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2894,7 +2894,7 @@
       "comp": "Patients Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "4s",
+      "dur": "5s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2958,7 +2958,7 @@
       "comp": "Patients Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "5s",
+      "dur": "4s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -3086,7 +3086,7 @@
       "comp": "Web 2.0 Sidebar Navigation Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "3s",
+      "dur": "4s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -3118,7 +3118,7 @@
       "comp": "Web 2.0 Sidebar Navigation Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "3s",
+      "dur": "5s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -3214,7 +3214,7 @@
       "comp": "Web 2.0 Sidebar Navigation Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "3s",
+      "dur": "5s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -3254,7 +3254,7 @@
       "comp": "Web 2.0 Sidebar Navigation Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "4s",
+      "dur": "3s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
