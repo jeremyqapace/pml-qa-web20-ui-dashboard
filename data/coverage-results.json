@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-30T23:47:10.291Z",
+  "generatedAt": "2026-11-04T17:17:10.848Z",
   "summary": {
-    "totalRequirements": 76,
+    "totalRequirements": 78,
     "withAutomatedCoverage": 5,
-    "withoutAutomatedCoverage": 71,
-    "totalAutomatedScenarios": 36,
+    "withoutAutomatedCoverage": 73,
+    "totalAutomatedScenarios": 45,
     "notMappedScenarioCount": 4,
-    "featureFilesScanned": 7
+    "featureFilesScanned": 8
   },
   "requirements": [
     {
@@ -268,6 +268,14 @@
     },
     {
       "id": "list-config-service-shared",
+      "scenarioCount": 0,
+      "files": [],
+      "hasAutomatedCoverage": false,
+      "hasPrd": false,
+      "prdTitles": []
+    },
+    {
+      "id": "list-page-size-shared",
       "scenarioCount": 0,
       "files": [],
       "hasAutomatedCoverage": false,
@@ -646,6 +654,16 @@
       ]
     },
     {
+      "id": "user-settings-transfer",
+      "scenarioCount": 0,
+      "files": [],
+      "hasAutomatedCoverage": false,
+      "hasPrd": true,
+      "prdTitles": [
+        "PRD: Proxima User Settings Transfer (Internal Admin)"
+      ]
+    },
+    {
       "id": "visit-id",
       "scenarioCount": 0,
       "files": [],
@@ -667,7 +685,7 @@
     },
     {
       "id": "crm-reports-internal",
-      "scenarioCount": 16,
+      "scenarioCount": 24,
       "files": [
         "Dashboard_Smoke.feature"
       ],
@@ -704,7 +722,7 @@
     },
     {
       "id": "report-viewer",
-      "scenarioCount": 5,
+      "scenarioCount": 6,
       "files": [
         "ReportViewer_Smoke.feature"
       ],
@@ -729,7 +747,12 @@
   },
   "warnings": {
     "untaggedFiles": [],
-    "unknownTags": [],
+    "unknownTags": [
+      {
+        "file": "PatientDetails_Smoke.feature",
+        "tag": "patient-details"
+      }
+    ],
     "parseErrors": [],
     "emptyFiles": []
   }
