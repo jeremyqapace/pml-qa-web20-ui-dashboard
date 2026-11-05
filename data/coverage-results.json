@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-05T14:32:12.453Z",
+  "generatedAt": "2026-11-05T17:28:35.799Z",
   "summary": {
-    "totalRequirements": 78,
+    "totalRequirements": 79,
     "withAutomatedCoverage": 5,
-    "withoutAutomatedCoverage": 73,
+    "withoutAutomatedCoverage": 74,
     "totalAutomatedScenarios": 45,
     "notMappedScenarioCount": 4,
     "featureFilesScanned": 8
@@ -28,6 +28,18 @@
       "hasPrd": true,
       "prdTitles": [
         "PRD: Analytics Space (WEB20)"
+      ]
+    },
+    {
+      "id": "analytics-v2",
+      "scenarioCount": 0,
+      "files": [],
+      "hasAutomatedCoverage": false,
+      "hasPrd": true,
+      "prdTitles": [
+        "PRD 02: Analytics dashboard platform",
+        "PRD 03: Analytics component library",
+        "PRD 05: Analytics links and temporary worklists"
       ]
     },
     {
