@@ -1,34 +1,34 @@
 {
-  "runId": "R-459",
-  "generatedAt": "2026-11-05T18:11:38.403Z",
-  "branch": "14/merge",
+  "runId": "R-460",
+  "generatedAt": "2026-11-05T18:37:03.934Z",
+  "branch": "main",
   "suite": "Smoke",
   "env": "QA",
   "baseUrl": "https://qa.pacematelive.com/web20/home",
   "tags": "@Smoke",
-  "runUrl": "https://github.com/PaceMateLive/web20_webAutomation_PaceMateLive/actions/runs/42076838944",
+  "runUrl": "https://github.com/PaceMateLive/web20_webAutomation_PaceMateLive/actions/runs/42082037478",
   "summary": {
     "total": 47,
-    "passed": 42,
-    "failed": 5,
+    "passed": 45,
+    "failed": 2,
     "flaky": 0,
-    "rate": 89.4,
-    "duration": "17m 24s",
-    "prevRunId": "R-458",
-    "prevRate": 81.8,
-    "prevTotal": 11,
-    "prevFailed": 2,
+    "rate": 95.7,
+    "duration": "19m 28s",
+    "prevRunId": "R-459",
+    "prevRate": 89.4,
+    "prevTotal": 47,
+    "prevFailed": 5,
     "prevFlaky": 0,
-    "prevDuration": "1m 40s",
+    "prevDuration": "17m 24s",
     "consecutivePassing": 0
   },
   "layers": {
     "ui": {
       "total": 47,
-      "passed": 42,
-      "failed": 5,
+      "passed": 45,
+      "failed": 2,
       "flaky": 0,
-      "rate": 89.4
+      "rate": 95.7
     },
     "api": {
       "total": 0,
@@ -41,13 +41,12 @@
   "comp": [
     {
       "name": "Dashboard Module Smoke",
-      "pct": 83,
-      "passed": 19,
+      "pct": 100,
+      "passed": 23,
       "total": 23,
-      "failed": 4,
+      "failed": 0,
       "flaky": 0,
       "sparks": [
-        83,
         87,
         87,
         100,
@@ -55,8 +54,9 @@
         96,
         100,
         87,
+        100,
         83,
-        83
+        100
       ]
     },
     {
@@ -121,10 +121,10 @@
     },
     {
       "name": "Login",
-      "pct": 100,
-      "passed": 4,
+      "pct": 75,
+      "passed": 3,
       "total": 4,
-      "failed": 0,
+      "failed": 1,
       "flaky": 0,
       "sparks": [
         75,
@@ -135,8 +135,8 @@
         75,
         75,
         75,
-        75,
-        100
+        100,
+        75
       ]
     },
     {
@@ -154,8 +154,8 @@
         100,
         100,
         100,
-        100,
         80,
+        100,
         100
       ]
     },
@@ -181,19 +181,19 @@
     }
   ],
   "hRuns": [
-    "R-455",
     "R-456",
     "R-457",
     "R-458",
-    "R-459"
+    "R-459",
+    "R-460"
   ],
   "hData": [
     [
-      96,
       100,
       87,
       100,
-      83
+      83,
+      100
     ],
     [
       100,
@@ -220,27 +220,26 @@
       75,
       75,
       75,
-      75,
-      100
+      100,
+      75
     ],
     [
-      100,
       100,
       100,
       80,
+      100,
       100
     ],
     [
       86,
       86,
-      86,
       100,
+      86,
       86
     ]
   ],
   "trend": {
     "labels": [
-      "R-450",
       "R-451",
       "R-452",
       "R-453",
@@ -249,10 +248,10 @@
       "R-456",
       "R-457",
       "R-458",
-      "R-459"
+      "R-459",
+      "R-460"
     ],
     "passed": [
-      41,
       42,
       42,
       45,
@@ -261,10 +260,10 @@
       45,
       42,
       9,
-      42
+      42,
+      45
     ],
     "failed": [
-      6,
       5,
       5,
       2,
@@ -273,7 +272,8 @@
       2,
       5,
       2,
-      5
+      5,
+      2
     ],
     "flaky": [
       0,
@@ -295,7 +295,7 @@
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "17s",
+      "dur": "19s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -364,7 +364,7 @@
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "37s",
+      "dur": "35s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -497,7 +497,7 @@
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "4s",
+      "dur": "5s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -564,7 +564,7 @@
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "26s",
+      "dur": "27s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -649,7 +649,7 @@
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "25s",
+      "dur": "27s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -734,7 +734,7 @@
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "27s",
+      "dur": "24s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -830,7 +830,7 @@
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "24s",
+      "dur": "30s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -915,7 +915,7 @@
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "35s",
+      "dur": "51s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1000,7 +1000,7 @@
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "14s",
+      "dur": "16s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1060,7 +1060,7 @@
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "17s",
+      "dur": "22s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1138,7 +1138,7 @@
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "18s",
+      "dur": "23s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1216,7 +1216,7 @@
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "16s",
+      "dur": "17s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1284,7 +1284,7 @@
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "17s",
+      "dur": "18s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1396,7 +1396,7 @@
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "11s",
+      "dur": "10s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1444,7 +1444,7 @@
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "59s",
+      "dur": "1m 2s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1524,7 +1524,7 @@
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "35s",
+      "dur": "37s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1635,7 +1635,7 @@
       "comp": "Dashboard Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "1m 7s",
+      "dur": "1m 10s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -1714,12 +1714,12 @@
       "name": "[Dashboard] - TC-0078 - Notes - Dismiss Note from Pending Note",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
-      "status": "failed",
-      "dur": "1m 56s",
-      "err": "Error: expect(locator).toHaveText(expected) failed",
+      "status": "passed",
+      "dur": "1m 26s",
+      "err": null,
       "endpoint": null,
-      "failedStep": "the Note Status column should show the note as \"Dismissed\"",
-      "fullErr": "Error: expect(locator).toHaveText(expected) failed\nLocator: getByTestId('note-status-cell-3050423').locator('.note-status-label')\nExpected: \"Dismissed\"\nTimeout: 10000ms\nError: element(s) not found\nCall log:",
+      "failedStep": null,
+      "fullErr": null,
       "payload": null,
       "requestPayload": null,
       "steps": [
@@ -1824,11 +1824,11 @@
         },
         {
           "text": "And the Note Status column should show the note as \"Dismissed\"",
-          "status": "failed"
+          "status": "passed"
         },
         {
           "text": "When I reactivate the note",
-          "status": "skipped"
+          "status": "passed"
         }
       ],
       "clickup": "https://app.clickup.com/t/868kmn9ak"
@@ -1837,12 +1837,12 @@
       "name": "[Dashboard] - TC-0079 - Notes - Pin Note from Pending Note",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
-      "status": "failed",
-      "dur": "1m 15s",
-      "err": "Error: expect(locator).toHaveCount(expected) failed",
+      "status": "passed",
+      "dur": "1m 47s",
+      "err": null,
       "endpoint": null,
-      "failedStep": "the note should no longer be listed on the dashboard",
-      "fullErr": "Error: expect(locator).toHaveCount(expected) failed\nLocator:  locator('.ag-center-cols-container .ag-row[row-id=\"3050420\"]')\nExpected: 0\nReceived: 1\nTimeout:  10000ms\nCall log:",
+      "failedStep": null,
+      "fullErr": null,
       "payload": null,
       "requestPayload": null,
       "steps": [
@@ -1935,23 +1935,23 @@
         },
         {
           "text": "And the note should no longer be listed on the dashboard",
-          "status": "failed"
+          "status": "passed"
         },
         {
           "text": "When I navigate to \"All Notes\" in the sidebar",
-          "status": "skipped"
+          "status": "passed"
         },
         {
           "text": "Then the Notes dashboard should load",
-          "status": "skipped"
+          "status": "passed"
         },
         {
           "text": "And the Note Status column should show the note as \"Pinned\"",
-          "status": "skipped"
+          "status": "passed"
         },
         {
           "text": "When I reactivate the note",
-          "status": "skipped"
+          "status": "passed"
         }
       ],
       "clickup": "https://app.clickup.com/t/868kmxd2p"
@@ -1960,12 +1960,12 @@
       "name": "[Dashboard] - TC-0082 - Notes - Dismiss from Notes Dashboard",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
-      "status": "failed",
-      "dur": "1m 3s",
-      "err": "Error: No note with status \"Pending\" on the first page of this notes list",
+      "status": "passed",
+      "dur": "1m 4s",
+      "err": null,
       "endpoint": null,
-      "failedStep": "I open the More Actions menu on a \"Pending\" note",
-      "fullErr": "Error: No note with status \"Pending\" on the first page of this notes list",
+      "failedStep": null,
+      "fullErr": null,
       "payload": null,
       "requestPayload": null,
       "steps": [
@@ -2031,11 +2031,11 @@
         },
         {
           "text": "When I open the More Actions menu on a \"Pending\" note",
-          "status": "failed"
+          "status": "passed"
         },
         {
           "text": "Then the More Actions menu should show the following options:",
-          "status": "skipped",
+          "status": "passed",
           "rows": [
             [
               "Pin Note"
@@ -2050,19 +2050,19 @@
         },
         {
           "text": "When I select \"Dismiss Note\" from the More Actions menu",
-          "status": "skipped"
+          "status": "passed"
         },
         {
           "text": "Then a Note status updated pop up should be visible",
-          "status": "skipped"
+          "status": "passed"
         },
         {
           "text": "And the Note Status column should show the note as \"Dismissed\"",
-          "status": "skipped"
+          "status": "passed"
         },
         {
           "text": "When I reactivate the note",
-          "status": "skipped"
+          "status": "passed"
         }
       ],
       "clickup": "https://app.clickup.com/t/868kndwkj"
@@ -2071,12 +2071,12 @@
       "name": "[Dashboard] - TC-0083 - Notes - Reactivate Dismissed Note from Notes Dashboard",
       "comp": "Dashboard Module Smoke",
       "type": "UI",
-      "status": "failed",
-      "dur": "33s",
-      "err": "Error: No note with status \"Pending\" on the first page of this notes list",
+      "status": "passed",
+      "dur": "1m 14s",
+      "err": null,
       "endpoint": null,
-      "failedStep": "a Pending note has been dismissed",
-      "fullErr": "Error: No note with status \"Pending\" on the first page of this notes list",
+      "failedStep": null,
+      "fullErr": null,
       "payload": null,
       "requestPayload": null,
       "steps": [
@@ -2146,15 +2146,15 @@
         },
         {
           "text": "Given a Pending note has been dismissed",
-          "status": "failed"
+          "status": "passed"
         },
         {
           "text": "When I open the More Actions menu on the dismissed note",
-          "status": "skipped"
+          "status": "passed"
         },
         {
           "text": "Then the More Actions menu should show the following options:",
-          "status": "skipped",
+          "status": "passed",
           "rows": [
             [
               "Pin Note"
@@ -2169,15 +2169,15 @@
         },
         {
           "text": "When I select \"Reactivate\" from the More Actions menu",
-          "status": "skipped"
+          "status": "passed"
         },
         {
           "text": "Then a Note status updated pop up should be visible",
-          "status": "skipped"
+          "status": "passed"
         },
         {
           "text": "And the Note Status column should show the note as \"Pending\"",
-          "status": "skipped"
+          "status": "passed"
         }
       ],
       "clickup": "https://app.clickup.com/t/868knm3p9"
@@ -2187,7 +2187,7 @@
       "comp": "InClinic Worklist Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "8s",
+      "dur": "9s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2243,7 +2243,7 @@
       "comp": "Report Viewer Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "38s",
+      "dur": "39s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2315,7 +2315,7 @@
       "comp": "Report Viewer Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "35s",
+      "dur": "37s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2379,7 +2379,7 @@
       "comp": "Report Viewer Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "37s",
+      "dur": "36s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2439,7 +2439,7 @@
       "comp": "Report Viewer Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "34s",
+      "dur": "36s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2547,7 +2547,7 @@
       "comp": "Report Viewer Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "37s",
+      "dur": "38s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2700,7 +2700,7 @@
       "comp": "Customize List Panel",
       "type": "UI",
       "status": "passed",
-      "dur": "3s",
+      "dur": "5s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2732,7 +2732,7 @@
       "comp": "Customize List Panel",
       "type": "UI",
       "status": "passed",
-      "dur": "4s",
+      "dur": "6s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2768,7 +2768,7 @@
       "comp": "Login",
       "type": "UI",
       "status": "passed",
-      "dur": "4s",
+      "dur": "7s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2792,7 +2792,7 @@
       "comp": "Login",
       "type": "UI",
       "status": "passed",
-      "dur": "4s",
+      "dur": "6s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2816,7 +2816,7 @@
       "comp": "Login",
       "type": "UI",
       "status": "passed",
-      "dur": "4s",
+      "dur": "6s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2839,22 +2839,22 @@
       "name": "[Login] - PMW-001.4 - Doctor Login - Verify Successful Authentication",
       "comp": "Login",
       "type": "UI",
-      "status": "passed",
-      "dur": "4s",
-      "err": null,
+      "status": "failed",
+      "dur": "0s",
+      "err": "Error: Credentials not found for role: doctor. Please check your .env file.",
       "endpoint": null,
-      "failedStep": null,
-      "fullErr": null,
+      "failedStep": "I log in as \"doctor\"",
+      "fullErr": "Error: Credentials not found for role: doctor. Please check your .env file.",
       "payload": null,
       "requestPayload": null,
       "steps": [
         {
           "text": "When I log in as \"doctor\"",
-          "status": "passed"
+          "status": "failed"
         },
         {
           "text": "Then I should see the dashboard",
-          "status": "passed"
+          "status": "skipped"
         }
       ],
       "clickup": null
@@ -2864,7 +2864,7 @@
       "comp": "Patients Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "3s",
+      "dur": "5s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2928,7 +2928,7 @@
       "comp": "Patients Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "3s",
+      "dur": "5s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2960,7 +2960,7 @@
       "comp": "Patients Module Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "3s",
+      "dur": "5s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -2992,7 +2992,7 @@
       "comp": "Web 2.0 Sidebar Navigation Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "3s",
+      "dur": "5s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -3088,7 +3088,7 @@
       "comp": "Web 2.0 Sidebar Navigation Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "2s",
+      "dur": "4s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -3120,7 +3120,7 @@
       "comp": "Web 2.0 Sidebar Navigation Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "2s",
+      "dur": "5s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -3168,7 +3168,7 @@
       "comp": "Web 2.0 Sidebar Navigation Smoke",
       "type": "UI",
       "status": "failed",
-      "dur": "11s",
+      "dur": "12s",
       "err": "Error: Sidebar has no \"EMR\" section for this user",
       "endpoint": null,
       "failedStep": "I expand the \"EMR\" section in the sidebar",
@@ -3216,7 +3216,7 @@
       "comp": "Web 2.0 Sidebar Navigation Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "3s",
+      "dur": "4s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
@@ -3256,7 +3256,7 @@
       "comp": "Web 2.0 Sidebar Navigation Smoke",
       "type": "UI",
       "status": "passed",
-      "dur": "2s",
+      "dur": "5s",
       "err": null,
       "endpoint": null,
       "failedStep": null,
