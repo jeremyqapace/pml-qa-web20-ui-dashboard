@@ -204,6 +204,33 @@ test.describe('Data problems', () => {
   });
 });
 
+test.describe('Site and tags', () => {
+  test.use({ permissions: ['clipboard-read', 'clipboard-write'] });
+
+  test('shows the site and tags a run used, and reruns with the same tags', async ({ page }) => {
+    const res = Object.assign(sample('results.json'), { env: 'DEV1', baseUrl: 'https://dev1.pacematelive.com/web20/home', tags: '@Complete' });
+    const runs = sample('runs.json');
+    runs[runs.length - 1] = Object.assign(runs[runs.length - 1], { env: 'DEV1', tags: '@Complete' });
+    await serveData(page, { 'results.json': res, 'runs.json': runs });
+    await page.goto('/');
+    await expect(page.locator('#ovSub')).toContainText('in DEV1, tagged @Complete.');
+    await expect(page.locator('#envList')).toContainText('@Complete');
+    await expect(page.locator('#envList a', { hasText: 'dev1.pacematelive.com/web20/home' })).toHaveAttribute('href', 'https://dev1.pacematelive.com/web20/home');
+    await page.locator('#wErrors .wrow').first().locator('[data-rerun-group]').click();
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toMatch(/^npx cucumber-js --tags "@Complete" --name "/);
+    await page.goto('/#history');
+    const row = page.locator('#hiList tr', { hasText: res.runId });
+    await expect(row).toContainText('@Complete');
+    await expect(row).toContainText('DEV1');
+  });
+
+  test('a run without tags has a Tags column but no Tags row', async ({ page }) => {
+    await open(page, '#history');
+    await expect(page.locator('#hiList thead')).toContainText('Tags');
+    await expect(page.locator('#envList')).not.toContainText('Tags');
+  });
+});
+
 test.describe('Accessibility and layout', () => {
   for (const hash of ['', '#suites', '#graphs', '#categories']) {
     test(`no WCAG A or AA issues on ${hash || '#overview'}`, async ({ page }) => {

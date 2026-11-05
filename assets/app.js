@@ -31,6 +31,10 @@
             const LIST_MAX = Number(CFG.maxSuitesListed) || 10;
             const EXCLUDE = new Set((CFG.excludeTypes || []).map(x => String(x).toUpperCase()));
             const suiteName = D => CFG.suiteLabel || (D && D.suite) || 'Smoke Tests';
+            // Site and tags a run used (env, tags, baseUrl in results.json and runs.json)
+            const siteOf = D => (D && D.env) || 'Dev';
+            const tagsOf = D => String((D && D.tags) || '').replace(/[^@\w\s().-]/g, '').trim();   // safe inside double quotes
+            const siteUrlOf = D => /^https:\/\//.test((D && D.baseUrl) || '') ? D.baseUrl : '';
             const CMD_LIMIT = 7000;                               // cmd.exe cuts commands off near 8,191 characters
             // ?data=samples previews the page with the sample files in samples/
             const SAMPLE = (new URLSearchParams(location.search).get('data') || '').match(/^[\w-]+$/) ? new URLSearchParams(location.search).get('data') : null;
@@ -124,7 +128,7 @@
                 let rows = all.map((r, i) => ({ r: runView(r), i }));
                 const idx = rows.findIndex(x => runIdOf(x.r) === D.runId);
                 if (idx >= 0) rows = rows.slice(0, idx + 1);
-                else rows.push({ r: runView({ runId: D.runId, generatedAt: D.generatedAt, duration: state.S.duration, branch: D.branch, suite: D.suite, env: D.env, runUrl: D.runUrl }), i: -1 });
+                else rows.push({ r: runView({ runId: D.runId, generatedAt: D.generatedAt, duration: state.S.duration, branch: D.branch, suite: D.suite, env: D.env, tags: D.tags, baseUrl: D.baseUrl, runUrl: D.runUrl }), i: -1 });
                 if (uiOnly) rows = rows.filter(x => x.r._ui);
                 return range ? rows.slice(-range) : rows;
             }
@@ -132,7 +136,7 @@
             /* --name is a regex. Anything other than letters, digits, spaces, _ and - becomes "." (match any
                character), so the filter is safe inside double quotes in cmd.exe, PowerShell and bash. */
             function nameRx(name) { return cleanName(name).replace(/[^A-Za-z0-9 _-]/g, '.').replace(/\s+/g, ' ').trim() }
-            function rerunCmd(list) { return `${RERUN_BASE} ${list.map(t => `--name "${nameRx(t.name)}"`).join(' ')}` }
+            function rerunCmd(list) { const tags = tagsOf(state.D); return `${RERUN_BASE}${tags ? ` --tags "${tags}"` : ''} ${list.map(t => `--name "${nameRx(t.name)}"`).join(' ')}` }
 
             let toastTimer;
             function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 2400) }
@@ -219,13 +223,13 @@
                 const D = state.D; if (!D) return;
                 const h = new Date().getHours();
                 const hi = h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening';
-                $('#ovSub').textContent = `${hi}, ${GREETING_NAME}. Run ${D.runId} finished ${ago(D.generatedAt)} on ${D.branch || 'main'} in ${D.env || 'Dev'}.`;
+                $('#ovSub').textContent = `${hi}, ${GREETING_NAME}. Run ${D.runId} finished ${ago(D.generatedAt)} on ${D.branch || 'main'} in ${siteOf(D)}${tagsOf(D) ? `, tagged ${tagsOf(D)}` : ''}.`;
             }
 
             /* ── sidebar + top bar ── */
             function renderShell() {
                 const D = state.D, S = state.S;
-                const meta = [['Run', D.runId], ['Finished', ago(D.generatedAt) || '--'], ['Run time', S.duration || '--'], ['Branch', D.branch || 'main'], ['Environment', D.env || 'Dev'], ['Suite', suiteName(D)]];
+                const meta = [['Run', D.runId], ['Finished', ago(D.generatedAt) || '--'], ['Run time', S.duration || '--'], ['Branch', D.branch || 'main'], ['Environment', siteOf(D)], ...(tagsOf(D) ? [['Tags', tagsOf(D)]] : []), ['Suite', suiteName(D)]];
                 $('#runMeta').innerHTML = meta.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join('');
                 ['#runLink', '#sideGh'].forEach(sel => { const link = $(sel); if (D.runUrl) { link.href = D.runUrl; link.hidden = false } else link.hidden = true });
 
@@ -301,11 +305,12 @@
                 const D = state.D, S = state.S;
                 const items = [
                     ['Run', D.runId], ['Finished', `${fmtDate(D.generatedAt)}${D.generatedAt ? ' (' + ago(D.generatedAt) + ')' : ''}`],
-                    ['Branch', D.branch || 'main'], ['Environment', D.env || 'Dev'], ['Suite', suiteName(D)],
+                    ['Branch', D.branch || 'main'], ['Environment', siteOf(D)], ...(tagsOf(D) ? [['Tags', tagsOf(D)]] : []), ['Suite', suiteName(D)],
                     ['Run time', S.duration || '--'],
                     ['UI tests', S.total]
                 ];
                 $('#envList').innerHTML = items.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join('')
+                    + (siteUrlOf(D) ? `<dt>Site</dt><dd><a class="link" href="${esc(siteUrlOf(D))}" target="_blank" rel="noopener">${esc(siteUrlOf(D).replace(/^https:\/\//, ''))}</a></dd>` : '')
                     + (D.runUrl ? `<dt>CI</dt><dd><a class="link" href="${esc(D.runUrl)}" target="_blank" rel="noopener">Open GitHub run</a></dd>` : '');
             }
 
@@ -596,14 +601,14 @@
                 renderHistChart();
                 if (!rows.length) { $('#hiList').innerHTML = emptyBox('clock', 'No history yet', 'Each scheduled run adds a row here.'); return }
                 $('#hiList').innerHTML = `<div class="tbl-wrap"><table>
-                    <thead><tr><th>Run</th><th>Finished</th><th>Pass rate</th><th class="n">Passed</th><th class="n">Failed</th><th class="n">Flaky</th><th>Run time</th><th>Branch</th></tr></thead>
+                    <thead><tr><th>Run</th><th>Finished</th><th>Pass rate</th><th class="n">Passed</th><th class="n">Failed</th><th class="n">Flaky</th><th>Run time</th><th>Tags</th><th>Environment</th><th>Branch</th></tr></thead>
                     <tbody>${rows.slice().reverse().map(({ r, i }) => {
                     const rate = r1(r.rate);
                     return `<tr class="click" data-run="${i}" tabindex="0" role="button" aria-label="Run ${esc(runIdOf(r))}, ${rate}% passed">
                         <td><b>${esc(runIdOf(r))}</b>${r._ui ? '' : '<span class="tag">All test types</span>'}</td><td class="t-sub">${esc(ago(r.generatedAt))}</td>
                         <td><span class="rate-mini">${bar(rate)}<b class="num">${rate}%</b></span></td>
                         <td class="n">${r.passed ?? 0}</td><td class="n">${r.failed ?? 0}</td><td class="n">${r.flaky ?? 0}</td>
-                        <td class="t-sub">${esc(r.duration || '--')}</td><td class="t-sub">${esc(r.branch || 'main')}</td>
+                        <td class="t-sub">${esc(r.duration || '--')}</td><td class="t-sub">${esc(tagsOf(r) || '--')}</td><td class="t-sub">${esc(siteOf(r))}</td><td class="t-sub">${esc(r.branch || 'main')}</td>
                     </tr>`;
                 }).join('')}</tbody></table></div>`;
             }
@@ -709,7 +714,7 @@
                         <div><dt>Suite</dt><dd>${esc(t.comp)}</dd></div>
                         <div><dt>Requirement</dt><dd>${req}</dd></div>
                         <div><dt>Run</dt><dd>${esc(D.runId)}</dd></div>
-                        <div><dt>Environment</dt><dd>${esc(D.env || 'Dev')}</dd></div>
+                        <div><dt>Environment</dt><dd>${esc(siteOf(D) + (tagsOf(D) ? ' · ' + tagsOf(D) : ''))}</dd></div>
                     </dl>
                     <p class="sec-label">Run it locally</p>
                     <div class="cmd"><code tabindex="0" aria-label="Rerun command">${esc(rerunCmd([t]))}</code><button type="button" data-copy-cmd="${t._i}">Copy</button></div>
@@ -742,7 +747,8 @@
                 const D = state.D, pmw = pmwOf(t.name), cu = clickupOf(t);
                 return [
                     `[BUG] ${pmw ? pmw + ': ' : ''}${cleanName(t.name)}`, '',
-                    `Environment:  ${D.env || 'Dev'}`,
+                    `Environment:  ${siteOf(D)}${siteUrlOf(D) ? ' ' + siteUrlOf(D) : ''}`,
+                    tagsOf(D) ? `Tags:         ${tagsOf(D)}` : null,
                     `Suite:        ${t.comp}`,
                     `Run:          ${D.runId}`,
                     `Duration:     ${t.dur || '--'}`,
@@ -785,7 +791,8 @@
                         <tbody>${comps.map(c => `<tr><td><b>${esc(c.name)}</b></td><td><span class="rate-mini">${bar(c.pct)}<b class="num">${c.pct}%</b></span></td><td class="n">${c.passed} of ${c.total}</td><td class="n">${c.failed}</td></tr>`).join('')}</tbody>
                     </table></div>` : emptyBox('grid', 'No suite breakdown', 'This run did not save one.')}
                     ${ui ? '' : '<p class="t-sub" style="margin-top:12px">This run has no UI-only numbers, so these include every test type.</p>'}`;
-                const sub = [when ? 'Finished ' + ago(when) : '', branch ? 'branch ' + branch : '', suite || '', env || ''].filter(Boolean).join(', ');
+                const tags = tagsOf(isCurrent ? D : raw);
+                const sub = [when ? 'Finished ' + ago(when) : '', branch ? 'branch ' + branch : '', suite || '', env || '', tags ? 'tagged ' + tags : ''].filter(Boolean).join(', ');
                 const foot = url ? `<a class="btn" href="${esc(url)}" target="_blank" rel="noopener">Open GitHub run</a>` : '';
                 openModal(`Run ${id}${isCurrent ? ' (latest)' : ''}`, sub, body, foot);
             }
