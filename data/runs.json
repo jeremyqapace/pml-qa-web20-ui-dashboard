@@ -1,88 +1,5 @@
 [
   {
-    "runNum": 459,
-    "runId": "R-459",
-    "rate": 89.4,
-    "total": 47,
-    "passed": 42,
-    "failed": 5,
-    "flaky": 0,
-    "duration": "17m 24s",
-    "generatedAt": "2026-11-05T18:11:38.403Z",
-    "suite": "Smoke",
-    "env": "QA",
-    "baseUrl": "https://qa.pacematelive.com/web20/home",
-    "tags": "@Smoke",
-    "branch": "14/merge",
-    "compRates": {
-      "Dashboard Module Smoke": {
-        "rate": 83,
-        "passed": 19,
-        "failed": 4,
-        "flaky": 0,
-        "total": 23
-      },
-      "InClinic Worklist Smoke": {
-        "rate": 100,
-        "passed": 1,
-        "failed": 0,
-        "flaky": 0,
-        "total": 1
-      },
-      "Report Viewer Module Smoke": {
-        "rate": 100,
-        "passed": 6,
-        "failed": 0,
-        "flaky": 0,
-        "total": 6
-      },
-      "Customize List Panel": {
-        "rate": 100,
-        "passed": 2,
-        "failed": 0,
-        "flaky": 0,
-        "total": 2
-      },
-      "Login": {
-        "rate": 100,
-        "passed": 4,
-        "failed": 0,
-        "flaky": 0,
-        "total": 4
-      },
-      "Patients Module Smoke": {
-        "rate": 100,
-        "passed": 4,
-        "failed": 0,
-        "flaky": 0,
-        "total": 4
-      },
-      "Web 2.0 Sidebar Navigation Smoke": {
-        "rate": 86,
-        "passed": 6,
-        "failed": 1,
-        "flaky": 0,
-        "total": 7
-      }
-    },
-    "layers": {
-      "ui": {
-        "total": 47,
-        "passed": 42,
-        "failed": 5,
-        "flaky": 0,
-        "rate": 89.4
-      },
-      "api": {
-        "total": 0,
-        "passed": 0,
-        "failed": 0,
-        "flaky": 0,
-        "rate": 0
-      }
-    }
-  },
-  {
     "runNum": 460,
     "runId": "R-460",
     "rate": 95.7,
@@ -705,6 +622,89 @@
     "baseUrl": "https://qa.pacematelive.com/web20/home",
     "tags": "@Smoke",
     "branch": "main",
+    "compRates": {
+      "Dashboard Module Smoke": {
+        "rate": 100,
+        "passed": 23,
+        "failed": 0,
+        "flaky": 0,
+        "total": 23
+      },
+      "InClinic Worklist Smoke": {
+        "rate": 100,
+        "passed": 1,
+        "failed": 0,
+        "flaky": 0,
+        "total": 1
+      },
+      "Report Viewer Module Smoke": {
+        "rate": 100,
+        "passed": 6,
+        "failed": 0,
+        "flaky": 0,
+        "total": 6
+      },
+      "Customize List Panel": {
+        "rate": 100,
+        "passed": 2,
+        "failed": 0,
+        "flaky": 0,
+        "total": 2
+      },
+      "Login": {
+        "rate": 100,
+        "passed": 4,
+        "failed": 0,
+        "flaky": 0,
+        "total": 4
+      },
+      "Patients Module Smoke": {
+        "rate": 100,
+        "passed": 4,
+        "failed": 0,
+        "flaky": 0,
+        "total": 4
+      },
+      "Web 2.0 Sidebar Navigation Smoke": {
+        "rate": 86,
+        "passed": 6,
+        "failed": 1,
+        "flaky": 0,
+        "total": 7
+      }
+    },
+    "layers": {
+      "ui": {
+        "total": 47,
+        "passed": 46,
+        "failed": 1,
+        "flaky": 0,
+        "rate": 97.9
+      },
+      "api": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0,
+        "flaky": 0,
+        "rate": 0
+      }
+    }
+  },
+  {
+    "runNum": 469,
+    "runId": "R-469",
+    "rate": 97.9,
+    "total": 47,
+    "passed": 46,
+    "failed": 1,
+    "flaky": 0,
+    "duration": "20m 56s",
+    "generatedAt": "2026-11-09T15:27:15.464Z",
+    "suite": "Smoke",
+    "env": "QA",
+    "baseUrl": "https://qa.pacematelive.com/web20/home",
+    "tags": "@Smoke",
+    "branch": "15/merge",
     "compRates": {
       "Dashboard Module Smoke": {
         "rate": 100,
